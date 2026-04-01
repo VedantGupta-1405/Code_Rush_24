@@ -1,0 +1,128 @@
+<style>
+#contact {
+  background: var(--black);
+  border-top: 0.5px solid rgba(255,255,255,0.05);
+}
+
+.contact-lede {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.55);
+  max-width: 36rem;
+  line-height: 1.75;
+  margin-top: -0.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(255,255,255,0.07);
+  border: 0.5px solid rgba(255,255,255,0.07);
+  margin-top: 0;
+}
+
+.contact-card {
+  background: var(--black);
+  padding: clamp(2rem, 4vw, 2.75rem) clamp(1.5rem, 3vw, 2.25rem);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: background 0.25s;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.25s;
+}
+
+.contact-card:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.contact-card:hover::before {
+  opacity: 1;
+}
+
+.contact-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0;
+}
+
+.contact-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(1.75rem, 4vw, 2.25rem);
+  letter-spacing: 0.06em;
+  color: var(--white);
+  line-height: 1.1;
+  margin: 0;
+}
+
+.contact-phone {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: var(--mid);
+  text-decoration: none;
+  align-self: flex-start;
+  padding: 0.5rem 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.15);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.contact-phone:hover {
+  color: var(--white);
+  border-bottom-color: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Contact</p>
+    <h2 class="display section-title reveal reveal-delay-1">Coordinators.</h2>
+    <p class="contact-lede reveal reveal-delay-2">Reach out for event details, logistics, or anything you need before hack day.</p>
+    <div class="contact-grid">
+      <article class="contact-card reveal reveal-delay-2">
+        <p class="contact-role">Technical Coordinator</p>
+        <p class="contact-name">Coordinator name</p>
+        <a href="tel:+919876543210" class="contact-phone">+91 98765 43210</a>
+      </article>
+      <article class="contact-card reveal reveal-delay-3">
+        <p class="contact-role">Student Coordinator</p>
+        <p class="contact-name">Coordinator name</p>
+        <a href="tel:+919876543211" class="contact-phone">+91 98765 43211</a>
+      </article>
+      <article class="contact-card reveal reveal-delay-2">
+        <p class="contact-role">Technical Coordinator</p>
+        <p class="contact-name">Coordinator name</p>
+        <a href="tel:+919876543210" class="contact-phone">+91 98765 43210</a>
+      </article>
+      <article class="contact-card reveal reveal-delay-3">
+        <p class="contact-role">Student Coordinator</p>
+        <p class="contact-name">Coordinator name</p>
+        <a href="tel:+919876543211" class="contact-phone">+91 98765 43211</a>
+      </article>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>

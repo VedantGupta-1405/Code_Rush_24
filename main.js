@@ -11,7 +11,8 @@ const sectionFiles = [
   "sections/05-schedule.html",
   "sections/06-resources.html",
   "sections/07-faq.html",
-  "sections/08-location.html",
+  "sections/08-contact.html",
+  "sections/09-location.html",
   "sections/10-footer.html",
 ];
 
