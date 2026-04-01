@@ -1,13 +1,14 @@
+/** Paste your Google Form URL here (opens in a new tab). */
+const REGISTER_FORM_URL = "https://forms.gle/REPLACE_WITH_YOUR_FORM";
+
 const sectionFiles = [
   "sections/01-navbar.html",
   "sections/02-hero.html",
   "sections/03-about.html",
   "sections/04-prizes.html",
   "sections/05-schedule.html",
-  "sections/06-sponsors.html",
   "sections/07-faq.html",
   "sections/08-location.html",
-  "sections/09-register.html",
   "sections/10-footer.html",
 ];
 
@@ -26,6 +27,14 @@ async function loadSections() {
   );
 
   app.innerHTML = htmlParts.join("\n");
+}
+
+function wireRegisterLinks() {
+  document.querySelectorAll(".register-link").forEach((a) => {
+    a.href = REGISTER_FORM_URL;
+    a.target = "_blank";
+    a.rel = "noopener noreferrer";
+  });
 }
 
 function initCountdown() {
@@ -103,19 +112,6 @@ function initMobileMenu() {
   });
 }
 
-function initFormSubmit() {
-  const submitBtn = document.getElementById("submitBtn");
-  if (!submitBtn) return;
-
-  submitBtn.addEventListener("click", () => {
-    const form = document.getElementById("regForm");
-    const success = document.getElementById("formSuccess");
-    if (!form || !success) return;
-    form.style.display = "none";
-    success.classList.add("show");
-  });
-}
-
 function initNavbarScroll() {
   window.addEventListener("scroll", () => {
     const nav = document.getElementById("navbar");
@@ -126,11 +122,11 @@ function initNavbarScroll() {
 
 async function bootstrap() {
   await loadSections();
+  wireRegisterLinks();
   initCountdown();
   initScrollReveal();
   initFaqAccordion();
   initMobileMenu();
-  initFormSubmit();
   initNavbarScroll();
 }
 
