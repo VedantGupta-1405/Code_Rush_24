@@ -1,0 +1,38 @@
+<style>
+#about { background: var(--black); }
+.about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+.about-text p { font-size: 1.05rem; font-weight: 300; color: rgba(255,255,255,0.65); line-height: 1.85; margin-bottom: 1.5rem; }
+.about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5px; background: rgba(255,255,255,0.07); border: 0.5px solid rgba(255,255,255,0.07); }
+.stat-cell { background: var(--black); padding: 2rem 1.75rem; }
+.stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.4rem; }
+.stat-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 768px) {
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .about-stats { grid-template-columns: 1fr 1fr; }
+}
+</style>
+
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-eyebrow reveal">About the Event</p>
+        <h2 class="display section-title reveal reveal-delay-1">Where builders come to<br>break boundaries.</h2>
+        <p class="reveal reveal-delay-2">
+          HackCMRIT is CMR Institute of Technology's flagship annual hackathon, bringing together the sharpest student minds to solve real-world problems in just 24 hours. Whether you are a coder, designer, or just someone with an idea - this is your stage.
+        </p>
+        <p class="reveal reveal-delay-3">
+          With mentorship from industry professionals, access to cutting-edge APIs, and a community of passionate hackers, you will leave with more than just a project - you will leave with a story.
+        </p>
+        <a href="#register" class="btn-primary reveal reveal-delay-4" style="margin-top: 1rem; display: inline-block;">Apply Now</a>
+      </div>
+      <div class="about-stats reveal reveal-delay-2">
+        <div class="stat-cell"><div class="stat-number">24</div><div class="stat-label">Hours of Hacking</div></div>
+        <div class="stat-cell"><div class="stat-number">300+</div><div class="stat-label">Participants</div></div>
+        <div class="stat-cell"><div class="stat-number">₹1L+</div><div class="stat-label">Prize Pool</div></div>
+        <div class="stat-cell"><div class="stat-number">10+</div><div class="stat-label">Mentors</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>

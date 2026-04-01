@@ -1,0 +1,38 @@
+<style>
+#location { background: rgba(255,255,255,0.015); }
+.location-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; margin-top: 3rem; align-items: start; }
+.location-info { display: flex; flex-direction: column; gap: 2rem; }
+.location-detail { display: flex; flex-direction: column; gap: 0.4rem; }
+.location-detail-label { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+.location-detail-value { font-size: 1rem; font-weight: 400; color: var(--white); }
+.location-detail-value.big { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 0.04em; }
+.map-wrapper { position: relative; aspect-ratio: 16/9; background: rgba(255,255,255,0.03); border: 0.5px solid rgba(255,255,255,0.08); overflow: hidden; }
+.map-wrapper iframe { width: 100%; height: 100%; border: none; filter: grayscale(100%) invert(90%) contrast(0.9); opacity: 0.85; }
+@media (max-width: 768px) { .location-grid { grid-template-columns: 1fr; } }
+</style>
+
+<section id="location">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Venue</p>
+    <h2 class="display section-title reveal reveal-delay-1">Find your way.</h2>
+    <div class="location-grid">
+      <div class="location-info reveal reveal-delay-1">
+        <div class="location-detail"><span class="location-detail-label">Institution</span><span class="location-detail-value big">CMR Institute<br>of Technology</span></div>
+        <div class="location-detail"><span class="location-detail-label">Address</span><span class="location-detail-value">#132, AECS Layout, IT Park Road,<br>Kundalahalli Colony, Brookefield,<br>Bengaluru, Karnataka - 560037</span></div>
+        <div class="location-detail"><span class="location-detail-label">Date & Time</span><span class="location-detail-value">April 29, 2025 - 8:00 AM onwards</span></div>
+        <div class="location-detail"><span class="location-detail-label">Nearest Metro</span><span class="location-detail-value">Brookefield / Kundalahalli - Purple Line</span></div>
+        <a href="https://maps.google.com/?q=CMR+Institute+of+Technology+Bangalore" target="_blank" rel="noopener" class="btn-secondary" style="align-self: flex-start; margin-top: 0.5rem;">Open in Maps</a>
+      </div>
+      <div class="map-wrapper reveal reveal-delay-2">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.9763822789496!2d77.69200537507678!3d12.980476987325744!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1168e8ed0a17%3A0x9e4eb60e41b56d5a!2sCMR%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1714000000000!5m2!1sen!2sin"
+          allowfullscreen=""
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="CMRIT Map">
+        </iframe>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="section-divider" style="background: rgba(0,0,0,0.08);"></div>

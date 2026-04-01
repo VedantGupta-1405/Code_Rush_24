@@ -1,0 +1,86 @@
+<style>
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 900;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 clamp(1.5rem, 5vw, 4rem);
+  height: 64px;
+  background: rgba(10, 10, 9, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 0.5px solid rgba(255,255,255,0.08);
+  transition: background 0.3s;
+}
+.nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 0.08em; color: var(--white); text-decoration: none; }
+.nav-logo span { color: var(--mid); }
+.nav-links { display: flex; gap: 2rem; list-style: none; }
+.nav-links a { font-size: 0.8rem; font-weight: 400; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+.nav-links a:hover { color: var(--white); }
+.nav-cta { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--black); background: var(--white); padding: 0.45rem 1.2rem; border-radius: var(--radius-sm); text-decoration: none; transition: background 0.2s, color 0.2s; }
+.nav-cta:hover { background: var(--mid); }
+.nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.nav-hamburger span { display: block; width: 24px; height: 1px; background: var(--white); transition: all 0.3s; }
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav-cta { display: none; }
+  .nav-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    background: rgba(10,10,9,0.97);
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    padding: 0;
+    border-bottom: 0.5px solid rgba(255,255,255,0.08);
+    transform: translateY(-110%);
+    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 850;
+  }
+  .nav-mobile.open { transform: translateY(0); }
+  .nav-mobile a {
+    display: block;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    padding: 1.1rem 2rem;
+    border-bottom: 0.5px solid rgba(255,255,255,0.05);
+    transition: color 0.2s, background 0.2s;
+  }
+  .nav-mobile a:hover { color: var(--white); background: rgba(255,255,255,0.03); }
+}
+@media (min-width: 769px) { .nav-mobile { display: none !important; } }
+</style>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-logo">Hack<span>CMRIT</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#prizes">Prizes</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#location">Venue</a></li>
+  </ul>
+  <a href="#register" class="nav-cta">Register Now</a>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="nav-mobile" id="mobileNav">
+  <a href="#about">About</a>
+  <a href="#prizes">Prizes</a>
+  <a href="#schedule">Schedule</a>
+  <a href="#sponsors">Sponsors</a>
+  <a href="#faq">FAQ</a>
+  <a href="#location">Venue</a>
+  <a href="#register">Register</a>
+</div>

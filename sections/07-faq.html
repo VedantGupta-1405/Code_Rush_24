@@ -1,0 +1,29 @@
+<style>
+#faq { background: var(--black); }
+.faq-list { margin-top: 3rem; border-top: 0.5px solid rgba(255,255,255,0.07); }
+.faq-item { border-bottom: 0.5px solid rgba(255,255,255,0.07); }
+.faq-question { width: 100%; background: none; border: none; color: var(--white); font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 400; text-align: left; padding: 1.5rem 0; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; transition: color 0.2s; }
+.faq-question:hover { color: var(--mid); }
+.faq-icon { width: 20px; height: 20px; border: 0.5px solid rgba(255,255,255,0.2); border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; color: var(--muted); transition: transform 0.25s, border-color 0.2s; font-family: 'JetBrains Mono', monospace; }
+.faq-item.open .faq-icon { transform: rotate(45deg); border-color: rgba(255,255,255,0.4); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease, padding 0.35s ease; }
+.faq-item.open .faq-answer { max-height: 300px; }
+.faq-answer p { font-size: 0.9rem; font-weight: 300; color: rgba(255,255,255,0.55); line-height: 1.8; padding-bottom: 1.5rem; }
+</style>
+
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">FAQ</p>
+    <h2 class="display section-title reveal reveal-delay-1">Common questions.</h2>
+    <div class="faq-list reveal reveal-delay-2">
+      <div class="faq-item"><button class="faq-question">Who can participate?<span class="faq-icon">+</span></button><div class="faq-answer"><p>HackCMRIT is open to all college students - undergraduate and postgraduate - from any institution. You do not need to be a CMRIT student to participate. Simply form a team of 2-4 members and register.</p></div></div>
+      <div class="faq-item"><button class="faq-question">How large can teams be?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Teams can have between 2 and 4 members. Solo participation is not allowed. If you do not have a team, join our Discord server where we will help match you with other participants.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Is there a registration fee?<span class="faq-icon">+</span></button><div class="faq-answer"><p>No, HackCMRIT is completely free to participate in. Meals, snacks, and basic amenities are provided throughout the event at no charge.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What should I bring?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Bring your laptop, charger, college ID, and any hardware you plan to use. We will provide power strips, Wi-Fi, food, and a great atmosphere. Sleeping mats will be available for overnight stays.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Are beginners welcome?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Absolutely. We have beginner-friendly workshops and dedicated mentors for first-time hackers. The event is designed to be inclusive of all skill levels, and you will be surprised what you can build in 24 hours.</p></div></div>
+      <div class="faq-item"><button class="faq-question">What are the judging criteria?<span class="faq-icon">+</span></button><div class="faq-answer"><p>Projects are judged on innovation & creativity, technical complexity, practical impact, presentation quality, and completeness. Judges include industry professionals and faculty from CMRIT.</p></div></div>
+      <div class="faq-item"><button class="faq-question">Can we use existing code or templates?<span class="faq-icon">+</span></button><div class="faq-answer"><p>All code written during the hackathon must be original. You may use publicly available libraries, frameworks, and APIs. Using a pre-existing codebase as the core of your project is not permitted.</p></div></div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>

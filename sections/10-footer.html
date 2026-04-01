@@ -1,0 +1,31 @@
+<style>
+footer { background: var(--black); border-top: 0.5px solid rgba(255,255,255,0.07); padding: 3rem clamp(1.5rem, 5vw, 4rem); }
+.footer-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; }
+.footer-brand .logo { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.06em; color: var(--white); margin-bottom: 0.5rem; }
+.footer-brand .tagline { font-size: 0.8rem; font-weight: 300; color: var(--muted); }
+.footer-links { display: flex; flex-direction: column; gap: 0.5rem; align-items: flex-end; }
+.footer-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; letter-spacing: 0.08em; transition: color 0.2s; }
+.footer-links a:hover { color: var(--white); }
+.footer-bottom { max-width: 1100px; margin: 2rem auto 0; padding-top: 1.5rem; border-top: 0.5px solid rgba(255,255,255,0.05); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+.footer-bottom p { font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); }
+</style>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">HackCMRIT</div>
+      <p class="tagline">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru &nbsp;·&nbsp; April 29-30, 2025</p>
+    </div>
+    <div class="footer-links">
+      <a href="#about">About</a>
+      <a href="#prizes">Prizes</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#location">Venue</a>
+      <a href="mailto:hackcmrit@cmrit.ac.in">Contact</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2025 CMR Institute of Technology. All rights reserved.</p>
+    <p>Built by the Technical Events Committee, CMRIT.</p>
+  </div>
+</footer>

@@ -1,0 +1,37 @@
+<style>
+#schedule { background: var(--black); }
+.timeline { margin-top: 3rem; position: relative; }
+.timeline::before { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 0.5px; background: rgba(255,255,255,0.1); }
+.timeline-item { display: flex; gap: 2rem; padding: 1.75rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); position: relative; }
+.timeline-item:last-child { border-bottom: none; }
+.timeline-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); width: 90px; flex-shrink: 0; padding-top: 0.2rem; text-align: right; }
+.timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; transition: background 0.2s; }
+.timeline-item:hover .timeline-dot { background: var(--white); }
+.timeline-content { flex: 1; }
+.timeline-event { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
+.timeline-desc { font-size: 0.85rem; font-weight: 300; color: var(--muted); }
+@media (max-width: 768px) {
+  .timeline::before { left: 0; }
+  .timeline-time { display: none; }
+}
+</style>
+
+<section id="schedule">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Timeline</p>
+    <h2 class="display section-title reveal reveal-delay-1">April 29 - 30, 2025</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal"><div class="timeline-time">08:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Registration & Check-In</div><div class="timeline-desc">Collect your kits, set up your workstations, grab a coffee.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">09:30 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Opening Ceremony</div><div class="timeline-desc">Welcome address, sponsor introductions, and theme reveal.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">10:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Hacking Begins</div><div class="timeline-desc">The clock starts. 24 hours of non-stop building.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">01:00 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Lunch Break</div><div class="timeline-desc">Catered lunch provided for all participants.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">04:00 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Mentor Sessions</div><div class="timeline-desc">One-on-one time with industry mentors and judges.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">08:00 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Dinner + Fun Activities</div><div class="timeline-desc">Mini-challenges, prizes, and team bonding events.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">12:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Midnight Snacks</div><div class="timeline-desc">Because midnight fuel is non-negotiable.</div></div></div>
+      <div class="timeline-item reveal"><div class="timeline-time">09:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Hacking Ends - Submissions</div><div class="timeline-desc">Code freeze. Final submissions on Devfolio.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">10:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Project Presentations</div><div class="timeline-desc">Demo your project to judges. 5 minutes per team.</div></div></div>
+      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">12:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Closing Ceremony & Awards</div><div class="timeline-desc">Results, prize distribution, and farewell. See you next year.</div></div></div>
+    </div>
+  </div>
+</section>
+<div class="section-divider"></div>
