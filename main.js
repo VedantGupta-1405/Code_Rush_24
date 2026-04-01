@@ -18,21 +18,63 @@ const sectionFiles = [
   "sections/10-footer.html",
 ];
 
+const countdownFallbackMarkup = `
+  <section id="hero">
+    <div class="hero-grid-bg"></div>
+    <div class="hero-gradient"></div>
+    <div class="hero-eyebrow">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru</div>
+    <h1 class="display hero-title">CODE<span class="accent">RUSH</span></h1>
+    <p class="hero-subtitle">
+      <strong>24 hours.</strong> Unlimited ambition. Build something the world has not seen yet - at CMRIT's flagship hackathon.
+    </p>
+    <div class="hero-actions">
+      <a href="${REGISTER_FORM_URL}" class="btn-primary register-link">Register Your Team</a>
+      <a href="#about" class="btn-secondary">Learn More</a>
+    </div>
+    <div class="countdown" id="countdown">
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-days">00</div>
+        <span class="countdown-label">Days</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-hours">00</div>
+        <span class="countdown-label">Hours</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-mins">00</div>
+        <span class="countdown-label">Minutes</span>
+      </div>
+      <div class="countdown-sep">:</div>
+      <div class="countdown-unit">
+        <div class="countdown-number" id="cd-secs">00</div>
+        <span class="countdown-label">Seconds</span>
+      </div>
+    </div>
+  </section>
+`;
+
 async function loadSections() {
   const app = document.getElementById("app");
   if (!app) return;
 
-  const htmlParts = await Promise.all(
-    sectionFiles.map(async (path) => {
-      const response = await fetch(path);
-      if (!response.ok) {
-        throw new Error(`Failed to load section: ${path}`);
-      }
-      return response.text();
-    })
-  );
+  try {
+    const htmlParts = await Promise.all(
+      sectionFiles.map(async (path) => {
+        const response = await fetch(path);
+        if (!response.ok) {
+          throw new Error(`Failed to load section: ${path}`);
+        }
+        return response.text();
+      })
+    );
 
-  app.innerHTML = htmlParts.join("\n");
+    app.innerHTML = htmlParts.join("\n");
+  } catch (error) {
+    console.warn("Section loading failed, rendering countdown fallback.", error);
+    app.innerHTML = countdownFallbackMarkup;
+  }
 }
 
 function wireExternalLinks() {
@@ -64,6 +106,7 @@ function initCountdown() {
   const mEl = document.getElementById("cd-mins");
   const sEl = document.getElementById("cd-secs");
   if (!dEl || !hEl || !mEl || !sEl) return;
+  let timerId = null;
 
   function pad(n) {
     return String(n).padStart(2, "0");
@@ -74,7 +117,7 @@ function initCountdown() {
     const diff = target - now;
     if (diff <= 0) {
       dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
-      clearInterval(timerId);
+      if (timerId) clearInterval(timerId);
       return;
     }
     const d = Math.floor(diff / 86400000);
@@ -88,7 +131,7 @@ function initCountdown() {
   }
 
   tick();
-  const timerId = setInterval(tick, 1000);
+  timerId = setInterval(tick, 1000);
 }
 
 function initScrollReveal() {
