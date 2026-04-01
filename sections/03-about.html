@@ -6,6 +6,7 @@
 .stat-cell { background: var(--black); padding: 2rem 1.75rem; }
 .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.4rem; }
 .stat-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
 @media (max-width: 768px) {
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .about-stats { grid-template-columns: 1fr 1fr; }
@@ -15,23 +16,55 @@
 <section id="about">
   <div class="section-inner">
     <div class="about-grid">
+      
       <div class="about-text">
         <p class="section-eyebrow reveal">About the Event</p>
-        <h2 class="display section-title reveal reveal-delay-1">Where builders come to<br>break boundaries.</h2>
+
+        <h2 class="display section-title reveal reveal-delay-1">
+          Where builders come to<br>break boundaries.
+        </h2>
+
         <p class="reveal reveal-delay-2">
           Code Rush is a 24-hour national-level hackathon and CMR Institute of Technology’s flagship event, where students build and present solutions to real-world problems — whether you're a coder, designer, or idea-driven thinker, this is your stage.
-        <p class="reveal reveal-delay-3">
-          Theme: AI & Innovation. Sub-themes will be assigned randomly and shared with team leaders via WhatsApp one day before the hackathon.
         </p>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor" class="btn-primary reveal reveal-delay-4 register-link" style="margin-top: 1rem; display: inline-block;">Apply Now</a>
+
+        <p class="reveal reveal-delay-3">
+          <strong>
+            Theme: AI & Innovation. Sub-themes will be assigned randomly and shared with team leaders via WhatsApp one day before the hackathon.
+          </strong>
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor"
+           class="btn-primary reveal reveal-delay-4 register-link"
+           style="margin-top: 1rem; display: inline-block;">
+          Apply Now
+        </a>
       </div>
+
       <div class="about-stats reveal reveal-delay-2">
-        <div class="stat-cell"><div class="stat-number">24</div><div class="stat-label">Hours of Hacking</div></div>
-        <div class="stat-cell"><div class="stat-number">2 - 4</div><div class="stat-label">Members Per Team</div></div>
-        <div class="stat-cell"><div class="stat-number">₹25K+</div><div class="stat-label">Total Prize Pool</div></div>
-        <div class="stat-cell"><div class="stat-number">₹600</div><div class="stat-label">Entry Fee per Team</div></div>
+        <div class="stat-cell">
+          <div class="stat-number">24</div>
+          <div class="stat-label">Hours of Hacking</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">2 - 4</div>
+          <div class="stat-label">Members Per Team</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">₹25K+</div>
+          <div class="stat-label">Total Prize Pool</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">₹600</div>
+          <div class="stat-label">Entry Fee per Team</div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
+
 <div class="section-divider"></div>
