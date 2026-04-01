@@ -58,7 +58,7 @@ function wireExternalLinks() {
 }
 
 function initCountdown() {
-  const target = new Date("2025-04-29T08:00:00+05:30").getTime();
+  const target = new Date("2026-04-29T09:30:00+05:30").getTime();
   const dEl = document.getElementById("cd-days");
   const hEl = document.getElementById("cd-hours");
   const mEl = document.getElementById("cd-mins");
@@ -74,6 +74,7 @@ function initCountdown() {
     const diff = target - now;
     if (diff <= 0) {
       dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
+      clearInterval(timerId);
       return;
     }
     const d = Math.floor(diff / 86400000);
@@ -87,7 +88,7 @@ function initCountdown() {
   }
 
   tick();
-  setInterval(tick, 1000);
+  const timerId = setInterval(tick, 1000);
 }
 
 function initScrollReveal() {
