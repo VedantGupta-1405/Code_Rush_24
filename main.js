@@ -1,5 +1,7 @@
-/** Paste your Google Form URL here (opens in a new tab). */
+/** Paste your links here (open in a new tab when they start with http). */
 const REGISTER_FORM_URL = "https://forms.gle/REPLACE_WITH_YOUR_FORM";
+const BROCHURE_URL = "#"; // e.g. PDF or Google Drive link
+const RULES_URL = "#"; // e.g. PDF or Notion / rules page
 
 const sectionFiles = [
   "sections/01-navbar.html",
@@ -7,6 +9,7 @@ const sectionFiles = [
   "sections/03-about.html",
   "sections/04-prizes.html",
   "sections/05-schedule.html",
+  "sections/06-resources.html",
   "sections/07-faq.html",
   "sections/08-location.html",
   "sections/10-footer.html",
@@ -29,11 +32,25 @@ async function loadSections() {
   app.innerHTML = htmlParts.join("\n");
 }
 
-function wireRegisterLinks() {
+function wireExternalLinks() {
   document.querySelectorAll(".register-link").forEach((a) => {
     a.href = REGISTER_FORM_URL;
     a.target = "_blank";
     a.rel = "noopener noreferrer";
+  });
+  document.querySelectorAll(".brochure-link").forEach((a) => {
+    a.href = BROCHURE_URL;
+    if (BROCHURE_URL.startsWith("http")) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
+  });
+  document.querySelectorAll(".rules-link").forEach((a) => {
+    a.href = RULES_URL;
+    if (RULES_URL.startsWith("http")) {
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+    }
   });
 }
 
@@ -122,7 +139,7 @@ function initNavbarScroll() {
 
 async function bootstrap() {
   await loadSections();
-  wireRegisterLinks();
+  wireExternalLinks();
   initCountdown();
   initScrollReveal();
   initFaqAccordion();
