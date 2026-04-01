@@ -359,18 +359,8 @@ section {
   color: var(--muted);
 }
 
-/* PRIZES */
+/* PRIZES — section-specific rules live in sections/04-prizes.html */
 #prizes { background: rgba(255,255,255,0.015); }
-
-.prizes-simple { text-align: center; margin-top: 2rem; }
-
-.prizes-amount {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: clamp(3rem, 12vw, 7rem);
-  color: var(--white);
-  letter-spacing: 0.04em;
-  line-height: 1;
-}
 
 /* SCHEDULE */
 #schedule { background: var(--black); }

@@ -1,14 +1,69 @@
 <style>
 #prizes { background: rgba(255,255,255,0.015); }
-.prizes-simple { text-align: center; margin-top: 2rem; }
-.prizes-amount { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3rem, 12vw, 7rem); color: var(--white); letter-spacing: 0.04em; line-height: 1; }
+
+.prizes-showcase {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(255,255,255,0.07);
+  border: 0.5px solid rgba(255,255,255,0.07);
+  margin-top: 3rem;
+}
+
+.prizes-box {
+  background: var(--black);
+  padding: clamp(2rem, 5vw, 3rem) clamp(1.5rem, 4vw, 2.5rem);
+  margin: 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  transition: background 0.25s;
+}
+
+.prizes-box:hover { background: rgba(255,255,255,0.03); }
+
+.prizes-box--featured {
+  background: rgba(255,255,255,0.04);
+}
+
+.prizes-box--featured:hover { background: rgba(255,255,255,0.055); }
+
+.prizes-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: clamp(3rem, 12vw, 6.5rem);
+  color: var(--white);
+  letter-spacing: 0.04em;
+  line-height: 1;
+  margin: 0;
+}
+
+.prizes-tagline {
+  font-size: clamp(1.05rem, 2.5vw, 1.35rem);
+  font-weight: 400;
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 22rem;
+}
+
+@media (max-width: 768px) {
+  .prizes-showcase { grid-template-columns: 1fr; }
+}
 </style>
 
 <section id="prizes">
   <div class="section-inner">
     <p class="section-eyebrow reveal">Prize Pool</p>
-    <div class="prizes-simple reveal reveal-delay-1">
-      <p class="prizes-amount">₹25,000+</p>
+    <div class="prizes-showcase reveal reveal-delay-1">
+      <div class="prizes-box prizes-box--featured">
+        <p class="prizes-amount">₹25,000+</p>
+      </div>
+      <div class="prizes-box">
+        <p class="prizes-tagline">Goodies and many more prizes</p>
+      </div>
     </div>
   </div>
 </section>
