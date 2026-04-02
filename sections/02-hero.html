@@ -10,12 +10,51 @@
   overflow: hidden;
   text-align: center;
 }
+
 .hero-grid-bg { position: absolute; inset: 0; background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px); background-size: 60px 60px; }
 .hero-gradient { position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 30%, rgba(255,255,255,0.04) 0%, transparent 70%); }
+
 .hero-eyebrow { position: relative; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
 .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 0.5px; background: var(--muted); }
-.hero-title { position: relative; font-size: clamp(5rem, 16vw, 14rem); color: var(--white); margin-bottom: 0.2em; }
+
+/* ✅ WRAPPER ADDED */
+.hero-title-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* ORIGINAL TITLE */
+.hero-title {
+  position: relative;
+  font-size: clamp(5rem, 16vw, 14rem);
+  color: var(--white);
+  margin-bottom: 0.2em;
+}
+
 .hero-title .accent { color: var(--mid); }
+
+/* ✅ LOGOS */
+.hero-logo {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: clamp(50px, 6vw, 90px);
+  height: clamp(50px, 6vw, 90px);
+  object-fit: contain;
+}
+
+/* LEFT LOGO */
+.hero-logo.left {
+  right: 100%;
+  margin-right: clamp(20px, 3vw, 60px);
+}
+
+/* RIGHT LOGO */
+.hero-logo.right {
+  left: 100%;
+  margin-left: clamp(20px, 3vw, 60px);
+}
+
 .hero-subtitle { position: relative; font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 300; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7; }
 .hero-subtitle strong { color: var(--white); font-weight: 400; }
 .hero-actions { position: relative; display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-bottom: 4rem; }
@@ -29,15 +68,29 @@
 <section id="hero">
   <div class="hero-grid-bg"></div>
   <div class="hero-gradient"></div>
+
   <div class="hero-eyebrow">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru</div>
-  <h1 class="display hero-title">CODE<span class="accent">RUSH</span></h1>
+
+  <!-- ✅ WRAPPED TITLE + LOGOS -->
+  <div class="hero-title-wrapper">
+    <img src="code_rush_white.png" class="hero-logo left" alt="Left Logo">
+    
+    <h1 class="display hero-title">
+      CODE<span class="accent">RUSH</span>
+    </h1>
+    
+    <img src="25_year.jpg" class="hero-logo right" alt="Right Logo">
+  </div>
+
   <p class="hero-subtitle">
     <strong>24 hours.</strong> Unlimited ambition. Build something the world has not seen yet - at CMRIT's flagship hackathon.
   </p>
+
   <div class="hero-actions">
     <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor" class="btn-primary register-link">Register Your Team</a>
     <a href="#about" class="btn-secondary">Learn More</a>
   </div>
+
   <div class="countdown" id="countdown">
     <div class="countdown-unit">
       <div class="countdown-number" id="cd-days">00</div>
@@ -60,4 +113,5 @@
     </div>
   </div>
 </section>
+
 <div class="section-divider"></div>
