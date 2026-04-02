@@ -17,13 +17,13 @@
 .hero-eyebrow { position: relative; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 1rem; }
 .hero-eyebrow::before, .hero-eyebrow::after { content: ''; width: 40px; height: 0.5px; background: var(--muted); }
 
-/* ✅ WRAPPER ADDED */
+/* WRAPPER */
 .hero-title-wrapper {
   position: relative;
   display: inline-block;
 }
 
-/* ORIGINAL TITLE */
+/* TITLE */
 .hero-title {
   position: relative;
   font-size: clamp(5rem, 16vw, 14rem);
@@ -33,26 +33,26 @@
 
 .hero-title .accent { color: var(--mid); }
 
-/* ✅ LOGOS */
+/* ✅ BIGGER LOGOS */
 .hero-logo {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(50px, 6vw, 90px);
-  height: clamp(50px, 6vw, 90px);
+  width: clamp(100px, 12vw, 200px);
+  height: clamp(100px, 12vw, 200px);
   object-fit: contain;
 }
 
-/* LEFT LOGO */
+/* LEFT */
 .hero-logo.left {
   right: 100%;
-  margin-right: clamp(20px, 3vw, 60px);
+  margin-right: clamp(30px, 4vw, 80px);
 }
 
-/* RIGHT LOGO */
+/* RIGHT */
 .hero-logo.right {
   left: 100%;
-  margin-left: clamp(20px, 3vw, 60px);
+  margin-left: clamp(30px, 4vw, 80px);
 }
 
 .hero-subtitle { position: relative; font-size: clamp(1rem, 2.5vw, 1.4rem); font-weight: 300; color: var(--muted); max-width: 560px; margin: 0 auto 2.5rem; line-height: 1.7; }
@@ -71,7 +71,6 @@
 
   <div class="hero-eyebrow">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru</div>
 
-  <!-- ✅ WRAPPED TITLE + LOGOS -->
   <div class="hero-title-wrapper">
     <img src="code_rush_white.png" class="hero-logo left" alt="Left Logo">
     
