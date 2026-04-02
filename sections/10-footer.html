@@ -13,7 +13,7 @@ footer {
   gap: 1.5rem;
 }
 
-/* TOP ROW (Logo) */
+/* LOGO */
 .footer-brand .logo {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 2rem;
@@ -21,26 +21,28 @@ footer {
   color: var(--white);
 }
 
-/* SECOND ROW (Tagline + Links SAME LINE) */
+/* TAGLINE + LINKS (SAME ROW) */
 .footer-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1rem;
 }
 
+/* TAGLINE */
 .footer-brand .tagline {
   font-size: 0.8rem;
   font-weight: 300;
   color: var(--muted);
+  margin: 0;
 }
 
 /* LINKS HORIZONTAL */
 .footer-links {
   display: flex;
-  gap: 1.2rem;
-  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
 }
 
 .footer-links a {
@@ -74,15 +76,15 @@ footer {
 <footer>
   <div class="footer-inner">
 
-    <!-- Logo -->
+    <!-- LOGO -->
     <div class="footer-brand">
       <div class="logo">CODERUSH</div>
     </div>
 
-    <!-- Tagline + Links SAME ROW -->
+    <!-- TAGLINE + LINKS SAME LINE -->
     <div class="footer-row">
       <p class="tagline">
-        CMR Institute of Technology · Bengaluru · April 29-30, 2026
+        CMR Institute of Technology · Bengaluru · April 29–30, 2026
       </p>
 
       <div class="footer-links">
