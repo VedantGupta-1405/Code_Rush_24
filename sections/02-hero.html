@@ -33,24 +33,26 @@
 
 .hero-title .accent { color: var(--mid); }
 
-/* ✅ BIGGER LOGOS */
+/* BASE LOGO (no size here) */
 .hero-logo {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  width: clamp(100px, 12vw, 200px);
-  height: clamp(100px, 12vw, 200px);
   object-fit: contain;
 }
 
-/* LEFT */
+/* ✅ LEFT LOGO (bigger) */
 .hero-logo.left {
+  width: clamp(130px, 14vw, 260px);
+  height: clamp(130px, 14vw, 260px);
   right: 100%;
-  margin-right: clamp(30px, 4vw, 80px);
+  margin-right: clamp(40px, 5vw, 100px);
 }
 
-/* RIGHT */
+/* ✅ RIGHT LOGO (smaller) */
 .hero-logo.right {
+  width: clamp(90px, 9vw, 160px);
+  height: clamp(90px, 9vw, 160px);
   left: 100%;
   margin-left: clamp(30px, 4vw, 80px);
 }
