@@ -1,38 +1,156 @@
 <style>
 #schedule { background: var(--black); }
-.timeline { margin-top: 3rem; position: relative; }
-.timeline::before { content: ''; position: absolute; left: 90px; top: 0; bottom: 0; width: 0.5px; background: rgba(255,255,255,0.1); }
-.timeline-item { display: flex; gap: 2rem; padding: 1.75rem 0; border-bottom: 0.5px solid rgba(255,255,255,0.05); position: relative; }
-.timeline-item:last-child { border-bottom: none; }
-.timeline-time { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--muted); width: 90px; flex-shrink: 0; padding-top: 0.2rem; text-align: right; }
-.timeline-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--muted); flex-shrink: 0; margin-top: 0.35rem; position: relative; z-index: 1; transition: background 0.2s; }
-.timeline-item:hover .timeline-dot { background: var(--white); }
-.timeline-content { flex: 1; }
-.timeline-event { font-size: 1rem; font-weight: 500; color: var(--white); margin-bottom: 0.3rem; }
-.timeline-desc { font-size: 0.85rem; font-weight: 300; color: var(--muted); }
+
+/* ---- Toggle Buttons ---- */
+.timeline-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.timeline-btn {
+  padding: 0.5rem 1.2rem;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeline-btn.active {
+  background: var(--white);
+  color: var(--black);
+}
+
+/* ---- Timeline ---- */
+.timeline {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 90px;
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background: rgba(255,255,255,0.1);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.05);
+}
+
+.timeline-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--muted);
+  width: 90px;
+  text-align: right;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  margin-top: 0.4rem;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-event {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.timeline-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* ---- Mobile Fix ---- */
 @media (max-width: 768px) {
-  .timeline::before { left: 0; }
-  .timeline-time { display: none; }
+  .timeline::before { left: 4px; }
+
+  .timeline-item {
+    gap: 0.8rem;
+  }
+
+  .timeline-time {
+    display: none;
+  }
+
+  .timeline-dot {
+    margin-left: 0;
+  }
 }
 </style>
 
 <section id="schedule">
   <div class="section-inner">
-    <p class="section-eyebrow reveal">Timeline</p>
-    <h2 class="display section-title reveal reveal-delay-1">April 29 - 30, 2026</h2>
-    <div class="timeline">
-      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">09:30 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Opening Ceremony</div><div class="timeline-desc">Kickoff, welcome address, and event briefing.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">11:00 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Ideation & PPT Preparations</div><div class="timeline-desc">Brainstorm ideas and finalize your problem statement.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">01:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Lunch Break</div><div class="timeline-desc">Recharge with a catered lunch.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">02:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Round 1 Evaluation</div><div class="timeline-desc">Initial judging and shortlisting of teams.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">04:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Snacks Break</div><div class="timeline-desc">Quick refreshments to keep you going.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">05:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Development Phase 1</div><div class="timeline-desc">Start building your solution.</div></div></div>
-      <div class="timeline-item reveal"><div class="timeline-time">08:30 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Dinner Break</div><div class="timeline-desc">Dinner served for all participants.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-1"><div class="timeline-time">10:00 PM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Development Phase 2</div><div class="timeline-desc">Overnight hacking and final implementation.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">08:30 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Breakfast</div><div class="timeline-desc">Morning refresh before final stretch.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">09:30 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Round 2 Evaluation</div><div class="timeline-desc">Final judging and project demos.</div></div></div>
-      <div class="timeline-item reveal reveal-delay-2"><div class="timeline-time">11:30 AM</div><div class="timeline-dot"></div><div class="timeline-content"><div class="timeline-event">Results & Prize Distribution</div><div class="timeline-desc">Winners announced and awards presented.</div></div></div>
+    <p class="section-eyebrow">Timeline</p>
+    <h2 class="display section-title">April 29 - 30, 2026</h2>
+
+    <!-- Toggle -->
+    <div class="timeline-toggle">
+      <button class="timeline-btn active" onclick="showDay('day1', this)">Day 1</button>
+      <button class="timeline-btn" onclick="showDay('day2', this)">Day 2</button>
     </div>
+
+    <!-- Timeline Container -->
+    <div id="timeline" class="timeline"></div>
   </div>
 </section>
-<div class="section-divider"></div>
+
+<script>
+const day1 = [
+  { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff and briefing." },
+  { time: "11:00 AM", title: "Ideation & PPT", desc: "Brainstorm ideas." },
+  { time: "01:30 PM", title: "Lunch Break", desc: "Recharge." },
+  { time: "02:30 PM", title: "Round 1 Evaluation", desc: "Initial judging." },
+  { time: "04:30 PM", title: "Snacks Break", desc: "Quick refreshments." },
+  { time: "05:30 PM", title: "Development Phase 1", desc: "Start building." },
+  { time: "08:30 PM", title: "Dinner Break", desc: "Dinner served." },
+  { time: "10:00 PM", title: "Development Phase 2", desc: "Overnight hacking." }
+];
+
+const day2 = [
+  { time: "08:30 AM", title: "Breakfast", desc: "Morning refresh." },
+  { time: "09:30 AM", title: "Round 2 Evaluation", desc: "Final demos." },
+  { time: "11:30 AM", title: "Results", desc: "Winners announced." }
+];
+
+function renderTimeline(data) {
+  const container = document.getElementById("timeline");
+  container.innerHTML = data.map(item => `
+    <div class="timeline-item">
+      <div class="timeline-time">${item.time}</div>
+      <div class="timeline-dot"></div>
+      <div class="timeline-content">
+        <div class="timeline-event">${item.title}</div>
+        <div class="timeline-desc">${item.desc}</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function showDay(day, btn) {
+  document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+
+  if (day === 'day1') renderTimeline(day1);
+  else renderTimeline(day2);
+}
+
+// Default load
+renderTimeline(day1);
+</script>
