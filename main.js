@@ -152,18 +152,20 @@ function initScheduleTimeline() {
   if (!timelineEl || !day1Btn || !day2Btn) return;
 
   const day1 = [
-    { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff" },
-    { time: "11:00 AM", title: "Ideation", desc: "Brainstorm" },
-    { time: "01:30 PM", title: "Lunch", desc: "Break" },
-    { time: "02:30 PM", title: "Evaluation", desc: "Judging" },
-    { time: "05:30 PM", title: "Development", desc: "Build" },
-    { time: "10:00 PM", title: "Overnight Hack", desc: "Continue" }
+    { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff and briefing." },
+    { time: "11:00 AM", title: "Ideation & PPT", desc: "Brainstorm ideas." },
+    { time: "01:30 PM", title: "Lunch Break", desc: "Recharge." },
+    { time: "02:30 PM", title: "Round 1 Evaluation", desc: "Initial judging." },
+    { time: "04:30 PM", title: "Snacks Break", desc: "Quick refreshments." },
+    { time: "05:30 PM", title: "Development Phase 1", desc: "Start building." },
+    { time: "08:30 PM", title: "Dinner Break", desc: "Dinner served." },
+    { time: "10:00 PM", title: "Development Phase 2", desc: "Overnight hacking." }
   ];
 
   const day2 = [
-    { time: "08:30 AM", title: "Breakfast", desc: "Refresh" },
-    { time: "09:30 AM", title: "Final Round", desc: "Demo" },
-    { time: "11:30 AM", title: "Results", desc: "Winners" }
+    { time: "08:30 AM", title: "Breakfast", desc: "Morning refresh." },
+    { time: "09:30 AM", title: "Round 2 Evaluation", desc: "Final demos." },
+    { time: "11:30 AM", title: "Results & Prize Distribution", desc: "Winners announced." }
   ];
 
   function render(data) {
@@ -199,7 +201,7 @@ function initScheduleTimeline() {
   render(day1);
 }
 
-/* ✅ BOOTSTRAP */
+/* ✅ UPDATE THIS */
 async function bootstrap() {
   await loadSections();
 
@@ -210,7 +212,7 @@ async function bootstrap() {
   initMobileMenu();
   initNavbarScroll();
 
-  // 🔥 critical fix
+  // 🔥 REQUIRED
   initScheduleTimeline();
 }
 
