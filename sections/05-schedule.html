@@ -1,7 +1,6 @@
 <style>
 #schedule { background: var(--black); }
 
-/* ---- Toggle Buttons ---- */
 .timeline-toggle {
   display: flex;
   gap: 1rem;
@@ -23,7 +22,6 @@
   color: var(--black);
 }
 
-/* ---- Timeline ---- */
 .timeline {
   margin-top: 2rem;
   position: relative;
@@ -77,21 +75,9 @@
   color: var(--muted);
 }
 
-/* ---- Mobile Fix ---- */
 @media (max-width: 768px) {
   .timeline::before { left: 4px; }
-
-  .timeline-item {
-    gap: 0.8rem;
-  }
-
-  .timeline-time {
-    display: none;
-  }
-
-  .timeline-dot {
-    margin-left: 0;
-  }
+  .timeline-time { display: none; }
 }
 </style>
 
@@ -100,57 +86,11 @@
     <p class="section-eyebrow">Timeline</p>
     <h2 class="display section-title">April 29 - 30, 2026</h2>
 
-    <!-- Toggle -->
     <div class="timeline-toggle">
-      <button class="timeline-btn active" onclick="showDay('day1', this)">Day 1</button>
-      <button class="timeline-btn" onclick="showDay('day2', this)">Day 2</button>
+      <button id="day1Btn" class="timeline-btn active">Day 1</button>
+      <button id="day2Btn" class="timeline-btn">Day 2</button>
     </div>
 
-    <!-- Timeline Container -->
     <div id="timeline" class="timeline"></div>
   </div>
 </section>
-
-<script>
-const day1 = [
-  { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff and briefing." },
-  { time: "11:00 AM", title: "Ideation & PPT", desc: "Brainstorm ideas." },
-  { time: "01:30 PM", title: "Lunch Break", desc: "Recharge." },
-  { time: "02:30 PM", title: "Round 1 Evaluation", desc: "Initial judging." },
-  { time: "04:30 PM", title: "Snacks Break", desc: "Quick refreshments." },
-  { time: "05:30 PM", title: "Development Phase 1", desc: "Start building." },
-  { time: "08:30 PM", title: "Dinner Break", desc: "Dinner served." },
-  { time: "10:00 PM", title: "Development Phase 2", desc: "Overnight hacking." }
-];
-
-const day2 = [
-  { time: "08:30 AM", title: "Breakfast", desc: "Morning refresh." },
-  { time: "09:30 AM", title: "Round 2 Evaluation", desc: "Final demos." },
-  { time: "11:30 AM", title: "Results", desc: "Winners announced." }
-];
-
-function renderTimeline(data) {
-  const container = document.getElementById("timeline");
-  container.innerHTML = data.map(item => `
-    <div class="timeline-item">
-      <div class="timeline-time">${item.time}</div>
-      <div class="timeline-dot"></div>
-      <div class="timeline-content">
-        <div class="timeline-event">${item.title}</div>
-        <div class="timeline-desc">${item.desc}</div>
-      </div>
-    </div>
-  `).join('');
-}
-
-function showDay(day, btn) {
-  document.querySelectorAll('.timeline-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-
-  if (day === 'day1') renderTimeline(day1);
-  else renderTimeline(day2);
-}
-
-// Default load
-renderTimeline(day1);
-</script>
