@@ -25,33 +25,8 @@ const countdownFallbackMarkup = `
     <div class="hero-eyebrow">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru</div>
     <h1 class="display hero-title">CODE<span class="accent">RUSH</span></h1>
     <p class="hero-subtitle">
-      <strong>24 hours.</strong> Unlimited ambition. Build something the world has not seen yet - at CMRIT's flagship hackathon.
+      <strong>24 hours.</strong> Unlimited ambition.
     </p>
-    <div class="hero-actions">
-      <a href="${REGISTER_FORM_URL}" class="btn-primary register-link">Register Your Team</a>
-      <a href="#about" class="btn-secondary">Learn More</a>
-    </div>
-    <div class="countdown" id="countdown">
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-days">00</div>
-        <span class="countdown-label">Days</span>
-      </div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-hours">00</div>
-        <span class="countdown-label">Hours</span>
-      </div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-mins">00</div>
-        <span class="countdown-label">Minutes</span>
-      </div>
-      <div class="countdown-sep">:</div>
-      <div class="countdown-unit">
-        <div class="countdown-number" id="cd-secs">00</div>
-        <span class="countdown-label">Seconds</span>
-      </div>
-    </div>
   </section>
 `;
 
@@ -63,16 +38,14 @@ async function loadSections() {
     const htmlParts = await Promise.all(
       sectionFiles.map(async (path) => {
         const response = await fetch(path);
-        if (!response.ok) {
-          throw new Error(`Failed to load section: ${path}`);
-        }
+        if (!response.ok) throw new Error(`Failed to load ${path}`);
         return response.text();
       })
     );
 
     app.innerHTML = htmlParts.join("\n");
   } catch (error) {
-    console.warn("Section loading failed, rendering countdown fallback.", error);
+    console.warn("Fallback triggered", error);
     app.innerHTML = countdownFallbackMarkup;
   }
 }
@@ -81,21 +54,16 @@ function wireExternalLinks() {
   document.querySelectorAll(".register-link").forEach((a) => {
     a.href = REGISTER_FORM_URL;
     a.target = "_blank";
-    a.rel = "noopener noreferrer";
   });
+
   document.querySelectorAll(".brochure-link").forEach((a) => {
     a.href = BROCHURE_URL;
-    if (BROCHURE_URL.startsWith("http")) {
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-    }
+    a.target = "_blank";
   });
+
   document.querySelectorAll(".rules-link").forEach((a) => {
     a.href = RULES_URL;
-    if (RULES_URL.startsWith("http")) {
-      a.target = "_blank";
-      a.rel = "noopener noreferrer";
-    }
+    a.target = "_blank";
   });
 }
 
@@ -105,25 +73,21 @@ function initCountdown() {
   const hEl = document.getElementById("cd-hours");
   const mEl = document.getElementById("cd-mins");
   const sEl = document.getElementById("cd-secs");
-  if (!dEl || !hEl || !mEl || !sEl) return;
-  let timerId = null;
+  if (!dEl) return;
 
   function pad(n) {
     return String(n).padStart(2, "0");
   }
 
   function tick() {
-    const now = Date.now();
-    const diff = target - now;
-    if (diff <= 0) {
-      dEl.textContent = hEl.textContent = mEl.textContent = sEl.textContent = "00";
-      if (timerId) clearInterval(timerId);
-      return;
-    }
+    const diff = target - Date.now();
+    if (diff <= 0) return;
+
     const d = Math.floor(diff / 86400000);
     const h = Math.floor((diff % 86400000) / 3600000);
     const m = Math.floor((diff % 3600000) / 60000);
     const s = Math.floor((diff % 60000) / 1000);
+
     dEl.textContent = pad(d);
     hEl.textContent = pad(h);
     mEl.textContent = pad(m);
@@ -131,22 +95,20 @@ function initCountdown() {
   }
 
   tick();
-  timerId = setInterval(tick, 1000);
+  setInterval(tick, 1000);
 }
 
 function initScrollReveal() {
   const els = document.querySelectorAll(".reveal");
-  const obs = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((e) => {
-        if (e.isIntersecting) {
-          e.target.classList.add("visible");
-          obs.unobserve(e.target);
-        }
-      });
-    },
-    { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
-  );
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        e.target.classList.add("visible");
+        obs.unobserve(e.target);
+      }
+    });
+  });
+
   els.forEach((el) => obs.observe(el));
 }
 
@@ -154,10 +116,10 @@ function initFaqAccordion() {
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.closest(".faq-item");
-      if (!item) return;
-      const isOpen = item.classList.contains("open");
-      document.querySelectorAll(".faq-item").forEach((i) => i.classList.remove("open"));
-      if (!isOpen) item.classList.add("open");
+      document.querySelectorAll(".faq-item").forEach((i) =>
+        i.classList.remove("open")
+      );
+      item.classList.toggle("open");
     });
   });
 }
@@ -165,14 +127,10 @@ function initFaqAccordion() {
 function initMobileMenu() {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
-  if (!hamburger || !mobileNav) return;
+  if (!hamburger) return;
 
   hamburger.addEventListener("click", () => {
     mobileNav.classList.toggle("open");
-  });
-
-  mobileNav.querySelectorAll("a").forEach((a) => {
-    a.addEventListener("click", () => mobileNav.classList.remove("open"));
   });
 }
 
@@ -180,20 +138,80 @@ function initNavbarScroll() {
   window.addEventListener("scroll", () => {
     const nav = document.getElementById("navbar");
     if (!nav) return;
-    nav.style.background = window.scrollY > 40 ? "rgba(10,10,9,0.97)" : "rgba(10,10,9,0.85)";
+    nav.style.background =
+      window.scrollY > 40 ? "rgba(10,10,9,0.97)" : "rgba(10,10,9,0.85)";
   });
 }
 
+/* ✅ NEW — TIMELINE LOGIC */
+function initScheduleTimeline() {
+  const timelineEl = document.getElementById("timeline");
+  const day1Btn = document.getElementById("day1Btn");
+  const day2Btn = document.getElementById("day2Btn");
+
+  if (!timelineEl || !day1Btn || !day2Btn) return;
+
+  const day1 = [
+    { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff" },
+    { time: "11:00 AM", title: "Ideation", desc: "Brainstorm" },
+    { time: "01:30 PM", title: "Lunch", desc: "Break" },
+    { time: "02:30 PM", title: "Evaluation", desc: "Judging" },
+    { time: "05:30 PM", title: "Development", desc: "Build" },
+    { time: "10:00 PM", title: "Overnight Hack", desc: "Continue" }
+  ];
+
+  const day2 = [
+    { time: "08:30 AM", title: "Breakfast", desc: "Refresh" },
+    { time: "09:30 AM", title: "Final Round", desc: "Demo" },
+    { time: "11:30 AM", title: "Results", desc: "Winners" }
+  ];
+
+  function render(data) {
+    timelineEl.innerHTML = data.map(item => `
+      <div class="timeline-item">
+        <div class="timeline-time">${item.time}</div>
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-event">${item.title}</div>
+          <div class="timeline-desc">${item.desc}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  function setActive(btn) {
+    document.querySelectorAll(".timeline-btn").forEach(b =>
+      b.classList.remove("active")
+    );
+    btn.classList.add("active");
+  }
+
+  day1Btn.addEventListener("click", () => {
+    render(day1);
+    setActive(day1Btn);
+  });
+
+  day2Btn.addEventListener("click", () => {
+    render(day2);
+    setActive(day2Btn);
+  });
+
+  render(day1);
+}
+
+/* ✅ BOOTSTRAP */
 async function bootstrap() {
   await loadSections();
+
   wireExternalLinks();
   initCountdown();
   initScrollReveal();
   initFaqAccordion();
   initMobileMenu();
   initNavbarScroll();
+
+  // 🔥 critical fix
+  initScheduleTimeline();
 }
 
-bootstrap().catch((error) => {
-  console.error(error);
-});
+bootstrap();
