@@ -77,8 +77,48 @@
 }
 
 @media (max-width: 768px) {
-  .timeline::before { left: 4px; }
-  .timeline-time { display: none; }
+  .timeline-toggle {
+    flex-wrap: wrap;
+  }
+
+  .timeline-btn {
+    flex: 1 1 140px;
+  }
+
+  .timeline::before {
+    left: 76px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 64px 12px minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+    padding: 1.15rem 0;
+  }
+
+  .timeline-time {
+    display: block;
+    width: auto;
+    text-align: left;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    padding-top: 0;
+  }
+
+  .timeline-dot {
+    margin-top: 0.35rem;
+    justify-self: center;
+  }
+
+  .timeline-event {
+    font-size: 0.95rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
 }
 </style>
 

@@ -65,6 +65,98 @@
 .countdown-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 6vw, 5rem); line-height: 1; color: var(--white); letter-spacing: 0.04em; }
 .countdown-label { font-family: 'JetBrains Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); margin-top: 0.4rem; display: block; }
 .countdown-sep { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2rem, 5vw, 4rem); color: rgba(255,255,255,0.15); align-self: flex-start; padding-top: 0.05em; }
+
+@media (max-width: 768px) {
+  #hero {
+    min-height: auto;
+    padding-top: 7.5rem;
+    padding-bottom: 4.5rem;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-eyebrow::before,
+  .hero-eyebrow::after {
+    width: 22px;
+  }
+
+  .hero-title-wrapper {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-areas:
+      "left right"
+      "title title";
+    justify-items: center;
+    align-items: center;
+    gap: 0.9rem 1rem;
+    width: 100%;
+    max-width: 340px;
+    margin-bottom: 1rem;
+  }
+
+  .hero-title {
+    grid-area: title;
+    font-size: clamp(4rem, 22vw, 6rem);
+    line-height: 0.95;
+    margin-bottom: 0;
+  }
+
+  .hero-logo {
+    position: static;
+    transform: none;
+    margin: 0;
+  }
+
+  .hero-logo.left {
+    grid-area: left;
+    width: clamp(88px, 26vw, 120px);
+    height: auto;
+  }
+
+  .hero-logo.right {
+    grid-area: right;
+    width: clamp(72px, 22vw, 100px);
+    height: auto;
+  }
+
+  .hero-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions {
+    width: 100%;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-actions a {
+    width: min(100%, 320px);
+  }
+
+  .countdown {
+    width: 100%;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .countdown-number {
+    font-size: clamp(2rem, 12vw, 2.8rem);
+  }
+
+  .countdown-label {
+    letter-spacing: 0.12em;
+  }
+
+  .countdown-sep {
+    display: none;
+  }
+}
 </style>
 
 <section id="hero">

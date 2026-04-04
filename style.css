@@ -648,8 +648,24 @@ footer {
 
   .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .location-grid { grid-template-columns: 1fr; }
-  .timeline::before { left: 0; }
-  .timeline-time { display: none; }
+  .timeline::before { left: 76px; }
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 64px 12px minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+  }
+  .timeline-time {
+    display: block;
+    width: auto;
+    text-align: left;
+    font-size: 0.68rem;
+    line-height: 1.5;
+  }
+  .timeline-dot {
+    justify-self: center;
+    margin-top: 0.35rem;
+  }
   .about-stats { grid-template-columns: 1fr 1fr; }
 
   .nav-mobile {

@@ -11,6 +11,7 @@ const sectionFiles = [
   "sections/03-about.html",
   "sections/04-prizes.html",
   "sections/05-schedule.html",
+  "sections/05b-rounds.html",
   "sections/06-resources.html",
   "sections/07-faq.html",
   "sections/08-contact.html",
