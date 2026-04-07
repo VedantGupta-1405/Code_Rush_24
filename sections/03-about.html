@@ -7,6 +7,24 @@
 .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: 3.5rem; line-height: 1; color: var(--white); letter-spacing: 0.04em; margin-bottom: 0.4rem; }
 .stat-label { font-size: 0.75rem; font-weight: 400; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
 
+/* ✅ NEW SECTION STYLE */
+.problem-box {
+  margin-top: 3rem;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  padding: 1.5rem 2rem;
+  text-align: center;
+}
+
+.problem-box p {
+  font-size: 0.95rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.85;
+}
+
 @media (max-width: 768px) {
   .about-grid {
     grid-template-columns: 1fr;
@@ -32,6 +50,17 @@
 
   .stat-label {
     letter-spacing: 0.08em;
+  }
+
+  /* ✅ MOBILE FIX */
+  .problem-box {
+    padding: 1.2rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .problem-box p {
+    font-size: 0.8rem;
+    line-height: 1.6;
   }
 }
 </style>
@@ -87,6 +116,14 @@
       </div>
 
     </div>
+
+    <!-- ✅ NEW BOX -->
+    <div class="problem-box">
+      <p>
+        Problem statements will be revealed 24 hours before the event and assigned randomly to each team.
+      </p>
+    </div>
+
   </div>
 </section>
 
