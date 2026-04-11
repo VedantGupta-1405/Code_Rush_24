@@ -1,3 +1,5 @@
+import { inject } from '@vercel/analytics';
+
 /** Paste your links here (open in a new tab when they start with http). */
 const REGISTER_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor";
@@ -204,6 +206,9 @@ function initScheduleTimeline() {
 
 /* ✅ UPDATE THIS */
 async function bootstrap() {
+  // Initialize Vercel Web Analytics
+  inject();
+  
   await loadSections();
 
   wireExternalLinks();

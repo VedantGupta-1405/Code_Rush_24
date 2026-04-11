@@ -1,0 +1,17 @@
+{
+  "name": "code-rush-24",
+  "version": "1.0.0",
+  "description": "CMRIT's flagship 24-hour hackathon",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^1.1.1"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0"
+  }
+}
