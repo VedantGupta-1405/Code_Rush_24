@@ -158,11 +158,11 @@ function initScheduleTimeline() {
     { time: "09:30 AM", title: "Opening Ceremony", desc: "Kickoff and briefing." },
     { time: "11:00 AM", title: "Ideation & PPT", desc: "Brainstorm ideas." },
     { time: "01:30 PM", title: "Lunch Break", desc: "Recharge." },
-    { time: "02:30 PM", title: "Round 1 Evaluation", desc: "Initial judging." },
+    { time: "02:30 PM", title: "Development Phase 1", desc: "Start building." },
     { time: "04:30 PM", title: "Snacks Break", desc: "Quick refreshments." },
-    { time: "05:30 PM", title: "Development Phase 1", desc: "Start building." },
+    { time: "05:30 PM", title: "Development Phase 2", desc: "Continue building." },
     { time: "08:30 PM", title: "Dinner Break", desc: "Dinner served." },
-    { time: "10:00 PM", title: "Development Phase 2", desc: "Overnight hacking." }
+    { time: "10:00 PM", title: "Development Phase 3", desc: "Overnight hacking." }
   ];
 
   const day2 = [
