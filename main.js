@@ -1,5 +1,17 @@
 import { inject } from '@vercel/analytics';
 
+import navbarHtml from './sections/01-navbar.html?raw';
+import heroHtml from './sections/02-hero.html?raw';
+import aboutHtml from './sections/03-about.html?raw';
+import prizesHtml from './sections/04-prizes.html?raw';
+import scheduleHtml from './sections/05-schedule.html?raw';
+import roundsHtml from './sections/05b-rounds.html?raw';
+import resourcesHtml from './sections/06-resources.html?raw';
+import faqHtml from './sections/07-faq.html?raw';
+import contactHtml from './sections/08-contact.html?raw';
+import locationHtml from './sections/09-location.html?raw';
+import footerHtml from './sections/10-footer.html?raw';
+
 /** Paste your links here (open in a new tab when they start with http). */
 const REGISTER_FORM_URL =
   "https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor";
@@ -7,18 +19,18 @@ const BROCHURE_URL = "https://drive.google.com/file/d/1xvHf3AHm_fgFoGPl_KGBpKoFv
 const RULES_URL =
   "https://drive.google.com/file/d/1X8kxqBBzCgP1iAT2u55lYbFvb9taHrQP/preview";
 
-const sectionFiles = [
-  "sections/01-navbar.html",
-  "sections/02-hero.html",
-  "sections/03-about.html",
-  "sections/04-prizes.html",
-  "sections/05-schedule.html",
-  "sections/05b-rounds.html",
-  "sections/06-resources.html",
-  "sections/07-faq.html",
-  "sections/08-contact.html",
-  "sections/09-location.html",
-  "sections/10-footer.html",
+const sectionList = [
+  navbarHtml,
+  heroHtml,
+  aboutHtml,
+  prizesHtml,
+  scheduleHtml,
+  roundsHtml,
+  resourcesHtml,
+  faqHtml,
+  contactHtml,
+  locationHtml,
+  footerHtml,
 ];
 
 const countdownFallbackMarkup = `
@@ -26,27 +38,19 @@ const countdownFallbackMarkup = `
     <div class="hero-grid-bg"></div>
     <div class="hero-gradient"></div>
     <div class="hero-eyebrow">CMR Institute of Technology &nbsp;·&nbsp; Bengaluru</div>
-    <h1 class="display hero-title">CODE<span class="accent">RUSH</span></h1>
+    <h1 class="display hero-title">CODE<span class="accent">RUSH 2.0</span></h1>
     <p class="hero-subtitle">
       <strong>24 hours.</strong> Unlimited ambition.
     </p>
   </section>
 `;
 
-async function loadSections() {
+function loadSections() {
   const app = document.getElementById("app");
   if (!app) return;
 
   try {
-    const htmlParts = await Promise.all(
-      sectionFiles.map(async (path) => {
-        const response = await fetch(path);
-        if (!response.ok) throw new Error(`Failed to load ${path}`);
-        return response.text();
-      })
-    );
-
-    app.innerHTML = htmlParts.join("\n");
+    app.innerHTML = sectionList.join("\n");
   } catch (error) {
     console.warn("Fallback triggered", error);
     app.innerHTML = countdownFallbackMarkup;
@@ -71,7 +75,7 @@ function wireExternalLinks() {
 }
 
 function initCountdown() {
-  const target = new Date("2026-04-29T09:30:00+05:30").getTime();
+  const target = new Date("2026-11-24T09:30:00+05:30").getTime();
   const dEl = document.getElementById("cd-days");
   const hEl = document.getElementById("cd-hours");
   const mEl = document.getElementById("cd-mins");
@@ -103,6 +107,11 @@ function initCountdown() {
 
 function initScrollReveal() {
   const els = document.querySelectorAll(".reveal");
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("visible"));
+    return;
+  }
+
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e) => {
       if (e.isIntersecting) {
@@ -119,10 +128,14 @@ function initFaqAccordion() {
   document.querySelectorAll(".faq-question").forEach((btn) => {
     btn.addEventListener("click", () => {
       const item = btn.closest(".faq-item");
+      if (!item) return;
+      const isOpen = item.classList.contains("open");
       document.querySelectorAll(".faq-item").forEach((i) =>
         i.classList.remove("open")
       );
-      item.classList.toggle("open");
+      if (!isOpen) {
+        item.classList.add("open");
+      }
     });
   });
 }
@@ -130,10 +143,16 @@ function initFaqAccordion() {
 function initMobileMenu() {
   const hamburger = document.getElementById("hamburger");
   const mobileNav = document.getElementById("mobileNav");
-  if (!hamburger) return;
+  if (!hamburger || !mobileNav) return;
 
   hamburger.addEventListener("click", () => {
     mobileNav.classList.toggle("open");
+  });
+
+  mobileNav.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileNav.classList.remove("open");
+    });
   });
 }
 
@@ -146,7 +165,7 @@ function initNavbarScroll() {
   });
 }
 
-/* ✅ NEW — TIMELINE LOGIC */
+/* ✅ SCHEDULE TIMELINE LOGIC */
 function initScheduleTimeline() {
   const timelineEl = document.getElementById("timeline");
   const day1Btn = document.getElementById("day1Btn");
@@ -204,12 +223,11 @@ function initScheduleTimeline() {
   render(day1);
 }
 
-/* ✅ UPDATE THIS */
 async function bootstrap() {
   // Initialize Vercel Web Analytics
   inject();
   
-  await loadSections();
+  loadSections();
 
   wireExternalLinks();
   initCountdown();

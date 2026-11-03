@@ -1,0 +1,100 @@
+<style>
+footer {
+  background: var(--black);
+  border-top: 0.5px solid rgba(255,255,255,0.07);
+  padding: 3rem clamp(1.5rem, 5vw, 4rem);
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* LOGO */
+.footer-brand .logo {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  letter-spacing: 0.06em;
+  color: var(--white);
+}
+
+/* TAGLINE + LINKS (SAME ROW) */
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+/* TAGLINE */
+.footer-brand .tagline {
+  font-size: 0.8rem;
+  font-weight: 300;
+  color: var(--muted);
+  margin: 0;
+}
+
+/* LINKS HORIZONTAL */
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-links a {
+  font-size: 0.78rem;
+  color: var(--muted);
+  text-decoration: none;
+  letter-spacing: 0.08em;
+  transition: color 0.2s;
+}
+
+.footer-links a:hover {
+  color: var(--white);
+}
+
+/* BOTTOM */
+.footer-bottom {
+  max-width: 1100px;
+  margin: 2rem auto 0;
+  padding-top: 1.5rem;
+  border-top: 0.5px solid rgba(255,255,255,0.05);
+}
+
+.footer-bottom p {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.2);
+}
+</style>
+
+<footer>
+  <div class="footer-inner">
+
+    <!-- LOGO -->
+    <div class="footer-brand">
+      <div class="logo">CODERUSH 2.0</div>
+    </div>
+
+    <!-- TAGLINE + LINKS SAME LINE -->
+    <div class="footer-row">
+
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#prizes">Prizes</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 CMR Institute of Technology. All rights reserved.</p>
+  </div>
+</footer>

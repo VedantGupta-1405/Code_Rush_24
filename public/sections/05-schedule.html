@@ -1,0 +1,137 @@
+<style>
+#schedule { background: var(--black); }
+
+.timeline-toggle {
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.timeline-btn {
+  padding: 0.5rem 1.2rem;
+  border: 0.5px solid rgba(255,255,255,0.15);
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.timeline-btn.active {
+  background: var(--white);
+  color: var(--black);
+}
+
+.timeline {
+  margin-top: 2rem;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 90px;
+  top: 0;
+  bottom: 0;
+  width: 0.5px;
+  background: rgba(255,255,255,0.1);
+}
+
+.timeline-item {
+  display: flex;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  border-bottom: 0.5px solid rgba(255,255,255,0.05);
+}
+
+/* ✅ TIME TEXT NOW PURE WHITE */
+.timeline-time {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #ffffff;   /* changed */
+  width: 90px;
+  text-align: right;
+}
+
+.timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  margin-top: 0.4rem;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+.timeline-event {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--white);
+}
+
+.timeline-desc {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+@media (max-width: 768px) {
+  .timeline-toggle {
+    flex-wrap: wrap;
+  }
+
+  .timeline-btn {
+    flex: 1 1 140px;
+  }
+
+  .timeline::before {
+    left: 76px;
+  }
+
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 64px 12px minmax(0, 1fr);
+    gap: 0.85rem;
+    align-items: start;
+    padding: 1.15rem 0;
+  }
+
+  .timeline-time {
+    display: block;
+    width: auto;
+    text-align: left;
+    font-size: 0.68rem;
+    line-height: 1.5;
+    padding-top: 0;
+  }
+
+  .timeline-dot {
+    margin-top: 0.35rem;
+    justify-self: center;
+  }
+
+  .timeline-event {
+    font-size: 0.95rem;
+  }
+
+  .timeline-desc {
+    font-size: 0.8rem;
+    line-height: 1.6;
+  }
+}
+</style>
+
+<section id="schedule">
+  <div class="section-inner">
+    <p class="section-eyebrow">Timeline</p>
+    <h2 class="display section-title">24–25 November</h2>
+
+    <div class="timeline-toggle">
+      <button id="day1Btn" class="timeline-btn active">Day 1</button>
+      <button id="day2Btn" class="timeline-btn">Day 2</button>
+    </div>
+
+    <div id="timeline" class="timeline"></div>
+  </div>
+</section>

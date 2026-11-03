@@ -1,0 +1,106 @@
+<style>
+#rounds {
+  background: rgba(255,255,255,0.015);
+}
+
+.rounds-grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+.round-card {
+  position: relative;
+  padding: 2rem;
+  border: 0.5px solid rgba(255,255,255,0.08);
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.015) 100%);
+  overflow: hidden;
+}
+
+.round-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 20px 20px;
+  pointer-events: none;
+}
+
+.round-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.round-label {
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mid);
+}
+
+.round-title {
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 0.8rem;
+  color: var(--white);
+}
+
+.round-copy {
+  font-size: 0.95rem;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.8;
+}
+
+@media (max-width: 768px) {
+  .rounds-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .round-card {
+    padding: 1.5rem;
+  }
+
+  .round-copy {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+}
+</style>
+
+<section id="rounds">
+  <div class="section-inner">
+    <p class="section-eyebrow reveal">Rounds</p>
+    <h2 class="display section-title reveal reveal-delay-1">Round Description</h2>
+
+    <div class="rounds-grid">
+      <article class="round-card reveal reveal-delay-1">
+        <span class="round-label">Round 1</span>
+        <h3 class="display round-title">Idea to Direction</h3>
+        <p class="round-copy">
+          Teams present their problem statement, core idea, and proposed solution flow.
+          This round focuses on clarity of thought, feasibility, innovation, and how well the
+          team can explain the value of what they plan to build.
+        </p>
+      </article>
+
+      <article class="round-card reveal reveal-delay-2">
+        <span class="round-label">Round 2</span>
+        <h3 class="display round-title">Build to Demo</h3>
+        <p class="round-copy">
+          Shortlisted teams showcase their working solution, product experience, and final pitch.
+          Evaluation centers on execution, technical depth, real-world relevance, presentation,
+          and the impact of the final prototype.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider"></div>

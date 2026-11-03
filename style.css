@@ -167,7 +167,7 @@ nav {
 
 .hero-title {
   position: relative;
-  font-size: clamp(5rem, 16vw, 14rem);
+  font-size: clamp(4.5rem, 12vw, 11rem);
   color: var(--white);
   margin-bottom: 0.2em;
 }

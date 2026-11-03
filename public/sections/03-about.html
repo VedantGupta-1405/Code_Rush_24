@@ -1,0 +1,195 @@
+<style>
+#about { background: var(--black); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.about-text p {
+  font-size: 1.05rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.65);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(255,255,255,0.07);
+  border: 0.5px solid rgba(255,255,255,0.07);
+}
+
+.stat-cell {
+  background: var(--black);
+  padding: 2rem 1.75rem;
+}
+
+.stat-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ✅ THEME BOX */
+.problem-box {
+  margin-top: 3rem;
+  width: 100%;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255,255,255,0.03);
+  padding: 2rem;
+  text-align: center;
+}
+
+.problem-box p {
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.8;
+  margin-bottom: 1rem;
+}
+
+/* ✅ NEW BUTTON STYLE (fits dark minimal aesthetic) */
+.theme-btn {
+  display: inline-block;
+  padding: 0.7rem 1.8rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  border: 1px solid rgba(255,255,255,0.2);
+  background: transparent;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.theme-btn:hover {
+  background: var(--white);
+  color: var(--black);
+  border-color: var(--white);
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+    width: 100%;
+  }
+
+  .about-text,
+  .about-stats {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+  }
+
+  .stat-cell {
+    padding: 1.6rem 1rem;
+  }
+
+  .stat-label {
+    letter-spacing: 0.08em;
+  }
+
+  .problem-box {
+    padding: 1.5rem 1rem;
+    margin-top: 2rem;
+  }
+
+  .problem-box p {
+    font-size: 0.75rem;
+    line-height: 1.6;
+  }
+}
+</style>
+
+<section id="about">
+  <div class="section-inner">
+
+    <div class="about-grid">
+      
+      <div class="about-text">
+        <p class="section-eyebrow reveal">About the Event</p>
+
+        <h2 class="display section-title reveal reveal-delay-1">
+          Where builders come to<br>break boundaries.
+        </h2>
+
+        <p class="reveal reveal-delay-2">
+          Code Rush 2.0 is a 24-hour national-level hackathon and CMR Institute of Technology’s flagship event, where students build and present solutions to real-world problems — whether you're a coder, designer, or idea-driven thinker, this is your stage.
+        </p>
+
+        <p class="reveal reveal-delay-3">
+          <strong>
+            Theme: AI & Innovation. Sub-themes will be assigned randomly and shared with team leaders via WhatsApp one day before the hackathon.
+          </strong>
+        </p>
+
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSdTFbtbSUuYAFguAUi7UM96pLU4rC3h0-pe0CHAQIVHkDnriA/viewform?usp=publish-editor"
+           class="btn-primary reveal reveal-delay-4 register-link"
+           style="margin-top: 1rem; display: inline-block;">
+          Apply Now
+        </a>
+      </div>
+
+      <div class="about-stats reveal reveal-delay-2">
+        <div class="stat-cell">
+          <div class="stat-number">24</div>
+          <div class="stat-label">Hours of Hacking</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">2 - 4</div>
+          <div class="stat-label">Members Per Team</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">₹25K+</div>
+          <div class="stat-label">Total Prize Pool</div>
+        </div>
+
+        <div class="stat-cell">
+          <div class="stat-number">₹600</div>
+          <div class="stat-label">Entry Fee per Team</div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ✅ UPDATED THEME ALLOCATION -->
+    <div class="problem-box">
+      <p>Theme Allocation</p>
+
+      <a href="https://drive.google.com/file/d/1WE0BV4-5lcWjMEFyAkPSCz75vhw3u0bX/view?usp=sharing"
+         target="_blank"
+         class="theme-btn">
+        View Details
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<div class="section-divider"></div>
